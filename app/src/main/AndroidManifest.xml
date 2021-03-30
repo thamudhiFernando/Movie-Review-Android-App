@@ -9,6 +9,54 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieReviewAndroidApp">
+        <activity
+            android:name=".RatingActivity"
+            android:label="@string/app_menu"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.moviereviewandroidapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SearchMovieActivity"
+            android:label="@string/app_menu"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.moviereviewandroidapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditMovieActivity"
+            android:label="@string/app_menu"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.moviereviewandroidapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".FavouritesActivity"
+            android:label="@string/app_menu"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.moviereviewandroidapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".DisplayMovieActivity"
+            android:label="@string/app_menu"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.moviereviewandroidapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".RegisterMovieActivity"
+            android:label="@string/app_menu"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.moviereviewandroidapp.MainActivity" />
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

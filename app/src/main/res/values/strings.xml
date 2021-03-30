@@ -1,6 +1,15 @@
 <resources>
     <!--    App Name-->
     <string name="app_name">Movie Review Android App</string>
+    <!--    Screen Headers-->
+    <string name="app_menu">Main Menu</string>
+    <string name="text_register">Register Movie</string>
+    <string name="text_display">Display Movies</string>
+    <string name="text_favourite">Favourites</string>
+    <string name="text_edit">Edit Movies</string>
+    <string name="text_watched">Watched Movies</string>
+    <string name="text_search">Search Movies</string>
+    <string name="text_rating">Ratings</string>
     <!--    Buttons-->
     <string name="btn_register">Register Movie</string>
     <string name="btn_display">Display Movies</string>
@@ -11,4 +20,8 @@
     <string name="btn_save">SAVE</string>
     <string name="btn_add_to_fav">Add to Favourite</string>
     <string name="btn_update">Update</string>
+    <string name="btn_search_imdb">Search from IMDb</string>
+    <string name="btn_look_up">Look Up</string>
+    <!--    Hint Text-->
+    <string name="hint_1">Enter Here</string>
 </resources>

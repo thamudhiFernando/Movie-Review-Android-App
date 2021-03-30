@@ -1,3 +1,14 @@
 <resources>
+    <!--    App Name-->
     <string name="app_name">Movie Review Android App</string>
+    <!--    Buttons-->
+    <string name="btn_register">Register Movie</string>
+    <string name="btn_display">Display Movies</string>
+    <string name="btn_favourite">Favourites</string>
+    <string name="btn_edit">Edit Movies</string>
+    <string name="btn_search">Search Movies</string>
+    <string name="btn_rating">Ratings</string>
+    <string name="btn_save">SAVE</string>
+    <string name="btn_add_to_fav">Add to Favourite</string>
+    <string name="btn_update">Update</string>
 </resources>

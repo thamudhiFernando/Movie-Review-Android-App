@@ -1,4 +1,4 @@
-package com.example.moviereviewandroidapp;
+ package com.example.moviereviewandroidapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 

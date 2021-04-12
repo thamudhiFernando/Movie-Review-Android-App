@@ -1,6 +1,6 @@
 <resources>
     <!--    App Name-->
-    <string name="app_name">Movie Review Android App</string>
+    <string name="app_name">Movieland</string>
     <!--    Screen Headers-->
     <string name="app_menu">Main Menu</string>
     <string name="text_register">Register Movie</string>

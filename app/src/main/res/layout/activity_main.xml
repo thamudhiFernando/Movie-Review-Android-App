@@ -4,17 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/button_favourites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:onClick="clickedFavouritesButton"
         android:text="@string/btn_favourite"
         app:backgroundTint="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.817"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_display" />
 
@@ -46,11 +50,12 @@
         android:id="@+id/button_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="120dp"
         android:onClick="clickedDisplayButton"
         android:text="@string/btn_display"
         app:backgroundTint="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_register" />
 
@@ -69,13 +74,125 @@
     <Button
         android:id="@+id/button_register"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_height="40dp"
         android:onClick="clickedRegisterButton"
         android:text="@string/btn_register"
-        app:backgroundTint="@color/teal_700"
+        app:backgroundTint="@color/light_pink"
+        app:layout_constraintBottom_toBottomOf="@+id/desc_main_card_image_1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/desc_main_card_image_1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/desc_main_card_image_1"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/desc_main_card_image_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_logo"
+        app:srcCompat="@drawable/card_1" />
+
+    <ImageView
+        android:id="@+id/desc_main_card_image_2"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:contentDescription="@string/desc_main_card_image_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/desc_main_card_image_1"
+        app:srcCompat="@drawable/card_2" />
+
+    <ImageView
+        android:id="@+id/desc_main_card_image_3"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:contentDescription="@string/desc_main_card_image_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/desc_main_card_image_2"
+        app:srcCompat="@drawable/card_3" />
+
+    <ImageView
+        android:id="@+id/desc_main_card_image_4"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:contentDescription="@string/desc_main_card_image_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/desc_main_card_image_3"
+        app:srcCompat="@drawable/card_4" />
+
+    <ImageView
+        android:id="@+id/desc_main_card_image_5"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:contentDescription="@string/desc_main_card_image_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/desc_main_card_image_4"
+        app:srcCompat="@drawable/card_5" />
+
+    <ImageView
+        android:id="@+id/desc_main_card_image_6"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:contentDescription="@string/desc_main_card_image_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/desc_main_card_image_5"
+        app:srcCompat="@drawable/card_6" />
+
+    <ImageView
+        android:id="@+id/imageView_logo"
+        android:layout_width="213dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/desc_imageView_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/head" />
+
+    <!--    <RelativeLayout-->
+<!--        android:id="@+id/relativelayout_main_card_2"-->
+<!--        android:layout_width="391dp"-->
+<!--        android:layout_height="75dp"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        tools:layout_editor_absoluteY="130dp">-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/card_display"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:onClick="clickedDisplayButton"-->
+<!--            app:cardBackgroundColor="@color/light_pink"-->
+<!--            app:cardCornerRadius="25dp">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView_display_main"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:contentDescription="@string/desc_main_img_2"-->
+<!--                app:srcCompat="@drawable/To_do_list_re_9nt7" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView_display"-->
+<!--                android:layout_width="118dp"-->
+<!--                android:layout_height="36dp"-->
+<!--                android:contentDescription="@string/text_display"-->
+<!--                android:text="@string/text_display" />-->
+<!--        </>-->
+<!--    </RelativeLayout>-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

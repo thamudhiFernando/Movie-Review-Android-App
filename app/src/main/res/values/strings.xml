@@ -24,4 +24,12 @@
     <string name="btn_look_up">Look Up</string>
     <!--    Hint Text-->
     <string name="hint_1">Enter Here</string>
+<!--    Descriptions-->
+    <string name="desc_main_card_image_1">register movie card img</string>
+    <string name="desc_main_card_image_2">display movie card img</string>
+    <string name="desc_main_card_image_3">fav movie card img</string>
+    <string name="desc_main_card_image_4">edit movie card img</string>
+    <string name="desc_main_card_image_5">search movie card img</string>
+    <string name="desc_main_card_image_6">rating movie card img</string>
+    <string name="desc_imageView_logo">Logo</string>
 </resources>

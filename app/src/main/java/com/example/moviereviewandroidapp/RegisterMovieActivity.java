@@ -2,10 +2,13 @@ package com.example.moviereviewandroidapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +18,9 @@ import android.widget.Toast;
 import com.example.moviereviewandroidapp.database.MovieDatabase;
 import com.example.moviereviewandroidapp.model.Movie;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static android.provider.BaseColumns._ID;
 
 public class RegisterMovieActivity extends AppCompatActivity {
@@ -23,6 +29,7 @@ public class RegisterMovieActivity extends AppCompatActivity {
     static final private String DB_TABLE = "Movie";
     //    Movie model
     private Movie movie;
+    private List<Movie> modules = new ArrayList<>();
 
     private static final String LOG_TAG = RegisterMovieActivity.class.getSimpleName();
 
@@ -46,25 +53,37 @@ public class RegisterMovieActivity extends AppCompatActivity {
         review = findViewById(R.id.editText_input_6);
         movieDatabase = new MovieDatabase(this);
 
-//        SQLiteDatabase db = movieDatabase.getReadableDatabase();
-//        Cursor cursor = db.rawQuery("SELECT * FROM "+ DB_TABLE ,null);
-//        System.out.println(cursor.getCount());
-//        getAllMovies(cursor);
+        movieDatabase = new MovieDatabase(this);
+        System.out.println(movieDatabase.getMovies().getCount());
+//        getAllMovies(movieDatabase.getMovies());
     }
 
     public void clickedSaveMovieButton(View view) {
         try {
-            SQLiteDatabase database = movieDatabase.getWritableDatabase();
-            ContentValues values = new ContentValues();
-            values.put(Movie.COLUMN_TITLE, title.getText().toString());
-            values.put(Movie.COLUMN_YEAR, Integer.parseInt(year.getText().toString()));
-            values.put(Movie.COLUMN_DIRECTOR, director.getText().toString());
-            values.put(Movie.COLUMN_ACTORS, actor.getText().toString());
-            values.put(Movie.COLUMN_RATING, Integer.parseInt(rating.getText().toString()));
-            values.put(Movie.COLUMN_REVIEW, review.getText().toString());
-            values.put(Movie.COLUMN_FAVOURITE, "yes");
-            database.insertOrThrow(DB_TABLE, null, values);
-            Log.d(LOG_TAG, "Data Saved Successfully");
+            Movie movie = new Movie();
+            movie.setTitle(title.getText().toString());
+            movie.setYear(Integer.parseInt(year.getText().toString()));
+            movie.setDirector(director.getText().toString());
+            movie.setActor(actor.getText().toString());
+            movie.setRating(Integer.parseInt(rating.getText().toString()));
+            movie.setReview(review.getText().toString());
+            movieDatabase.insertMovie(movie);
+
+            AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    //set icon
+//                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    //set title
+                    .setTitle(Html.fromHtml("<font color='#00b300'>Movie Added Successfully</font>"))
+                    //set positive button
+                    .setPositiveButton(Html.fromHtml("<font color='#00b300'>OK</font>"), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Log.d(LOG_TAG, "Data Saved Successfully");
+                        }
+                    })
+                    //set negative button
+                    .setCancelable(true)
+                    .show();
         } catch (Exception error) {
             Toast toast = Toast.makeText(getApplicationContext(), "Failed to add New Movie", Toast.LENGTH_SHORT);
             toast.show();
@@ -74,22 +93,17 @@ public class RegisterMovieActivity extends AppCompatActivity {
     private void getAllMovies(Cursor cursor) {
         movie = new Movie();
         while (cursor.moveToNext()) {
-            int id = cursor.getInt(0);
-            String title = cursor.getString(1);
-            int year = cursor.getInt(2);
-            String director = cursor.getString(3);
-            String actor = cursor.getString(4);
-            int rating = cursor.getInt(5);
-            String review = cursor.getString(6);
-            String fav = cursor.getString(7);
-            movie.setId(id);
-            movie.setYear(year);
-            movie.setDirector(director);
-            movie.setActor(actor);
-            movie.setRating(rating);
-            movie.setReview(review);
-            movie.setFavourite(fav);
+            Movie movie = new Movie();
+            movie.setId(cursor.getInt(0));
+            movie.setTitle(cursor.getString(1));
+            movie.setYear(cursor.getInt(2));
+            movie.setDirector(cursor.getString(3));
+            movie.setActor(cursor.getString(4));
+            movie.setRating(cursor.getInt(5));
+            movie.setReview(cursor.getString(6));
+            movie.setFavourite(cursor.getString(7).equals("1"));
             movie.toString();
+            modules.add(movie);
         }
         cursor.close();
     }

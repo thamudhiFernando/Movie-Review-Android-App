@@ -1,6 +1,8 @@
 package com.example.moviereviewandroidapp.model;
 
-public class Movie {
+import java.io.Serializable;
+
+public class Movie implements Serializable {
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_TITLE = "title";
     public static final String COLUMN_YEAR = "year";
@@ -17,13 +19,13 @@ public class Movie {
     private String actor;
     private int rating;
     private String review;
-    private String favourite;
+    private boolean favourite;
 
     public Movie() {
 
     }
 
-    public Movie(String title, int year, String director, String actor, int rating, String review, String favourite) {
+    public Movie(String title, int year, String director, String actor, int rating, String review, boolean favourite) {
         this.title = title;
         this.year = year;
         this.director = director;
@@ -33,7 +35,7 @@ public class Movie {
         this.favourite = favourite;
     }
 
-    public Movie(int id, String title, int year, String director, String actor, int rating, String review, String favourite) {
+    public Movie(int id, String title, int year, String director, String actor, int rating, String review, boolean favourite) {
         this.id = id;
         this.title = title;
         this.year = year;
@@ -100,11 +102,11 @@ public class Movie {
         this.review = review;
     }
 
-    public String getFavourite() {
+    public boolean isFavourite() {
         return favourite;
     }
 
-    public void setFavourite(String favourite) {
+    public void setFavourite(boolean favourite) {
         this.favourite = favourite;
     }
 

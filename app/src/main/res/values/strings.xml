@@ -32,6 +32,7 @@
     <string name="desc_main_card_image_5">search movie card img</string>
     <string name="desc_main_card_image_6">rating movie card img</string>
     <string name="desc_imageView_logo">Logo</string>
+    <string name="imageView_card_movie">Card Image</string>
 <!--    Text Inputs Labels-->
     <string name="desc_txt_title">Title of Movie</string>
     <string name="desc_txt_year">Year</string>

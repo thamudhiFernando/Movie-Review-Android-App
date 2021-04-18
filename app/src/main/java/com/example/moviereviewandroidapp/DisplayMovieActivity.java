@@ -29,11 +29,12 @@ import java.util.Map;
 public class DisplayMovieActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     //    Database
     private MovieDatabase movieDatabase;
-    static final private String DB_TABLE = "Movie";
     ListView listview;
-    private List<Movie> modules = new ArrayList<>();
-    private Map<Integer, Boolean> favMovies = new HashMap<>();
+    private List<Movie> movieList = new ArrayList<>();
+//    List of Favourite Movies
+    private Map<Integer, Boolean> favouriteMoviesMap = new HashMap<>();
     private static final String LOG_TAG = DisplayMovieActivity.class.getSimpleName();
+//    Adapter Declaration
     MovieArrayAdapter adapter;
 
     @Override
@@ -47,29 +48,24 @@ public class DisplayMovieActivity extends AppCompatActivity implements View.OnCl
 
         listview = findViewById(R.id.listview_movies);
 
-        adapter = new MovieArrayAdapter(this, R.layout.movie_list, modules, this);
+        adapter = new MovieArrayAdapter(this, R.layout.movie_list, movieList, this);
         listview.setAdapter(adapter);
     }
 
     public void addToFavourite(View view) {
         try {
-            SQLiteDatabase db = movieDatabase.getWritableDatabase();
-            for (Map.Entry<Integer, Boolean> entry : favMovies.entrySet()) {
-                ContentValues values = new ContentValues();
-                values.put(Movie.COLUMN_FAVOURITE, entry.getValue());
-                db.update(DB_TABLE, values, Movie.COLUMN_ID + " = " + entry.getKey(), null);
-            }
+            movieDatabase.makeMovieFavourite(favouriteMoviesMap);
             Log.d(LOG_TAG, "Favourite Updated Successfully");
             AlertDialog alertDialog = new AlertDialog.Builder(this)
                     //set icon
 //                    .setIcon(android.R.drawable.ic_dialog_alert)
                     //set title
-                    .setTitle(Html.fromHtml("<font color='#00b300'>Favourite Updated Successfully</font>"))
+                    .setTitle(Html.fromHtml("<font color='#000200'>Favourite Updated Successfully</font>"))
                     //set positive button
-                    .setPositiveButton(Html.fromHtml("<font color='#00b300'>OK</font>"), new DialogInterface.OnClickListener() {
+                    .setPositiveButton(Html.fromHtml("<font color='#FF0000'>OK</font>"), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            favMovies.clear();
+                            favouriteMoviesMap.clear();
                         }
                     })
                     //set negative button
@@ -86,12 +82,12 @@ public class DisplayMovieActivity extends AppCompatActivity implements View.OnCl
         TextView textView = view.findViewById(R.id.movie_title);
         boolean checkedValue = true;
         int position = (Integer) view.getTag();
-        if (favMovies.get(modules.get(position).getId()) != null) {
-            checkedValue = !favMovies.get(modules.get(position).getId());
+        if (favouriteMoviesMap.get(movieList.get(position).getId()) != null) {
+            checkedValue = !favouriteMoviesMap.get(movieList.get(position).getId());
         } else {
-            checkedValue = !modules.get(position).isFavourite();
+            checkedValue = !movieList.get(position).isFavourite();
         }
-        favMovies.put(modules.get(position).getId(), checkedValue);
+        favouriteMoviesMap.put(movieList.get(position).getId(), checkedValue);
         Log.i("Clicked Movie : ", textView.getText().toString());
     }
 
@@ -100,12 +96,12 @@ public class DisplayMovieActivity extends AppCompatActivity implements View.OnCl
         int position = (Integer) buttonView.getTag();
         Log.i("Clicked on Checkbox", (position) + "");
         boolean value = true;
-        if (favMovies.get(modules.get(position).getId()) != null) {
-            value = !favMovies.get(modules.get(position).getId());
+        if (favouriteMoviesMap.get(movieList.get(position).getId()) != null) {
+            value = !favouriteMoviesMap.get(movieList.get(position).getId());
         } else {
-            value = !modules.get(position).isFavourite();
+            value = !movieList.get(position).isFavourite();
         }
-        favMovies.put(modules.get(position).getId(), value);
+        favouriteMoviesMap.put(movieList.get(position).getId(), value);
         Log.i("Clicked on Checkbox", String.valueOf(position));
     }
 
@@ -122,7 +118,7 @@ public class DisplayMovieActivity extends AppCompatActivity implements View.OnCl
             movie.setReview(cursor.getString(6));
             movie.setFavourite(cursor.getString(7).equals("1"));
             movie.toString();
-            modules.add(movie);
+            movieList.add(movie);
         }
         cursor.close();
     }

@@ -73,9 +73,9 @@ public class RegisterMovieActivity extends AppCompatActivity {
                     //set icon
 //                    .setIcon(android.R.drawable.ic_dialog_alert)
                     //set title
-                    .setTitle(Html.fromHtml("<font color='#00b300'>Movie Added Successfully</font>"))
+                    .setTitle(Html.fromHtml("<font color='#000200'>Movie Added Successfully</font>"))
                     //set positive button
-                    .setPositiveButton(Html.fromHtml("<font color='#00b300'>OK</font>"), new DialogInterface.OnClickListener() {
+                    .setPositiveButton(Html.fromHtml("<font color='#FF0000'>OK</font>"), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             Log.d(LOG_TAG, "Data Saved Successfully");

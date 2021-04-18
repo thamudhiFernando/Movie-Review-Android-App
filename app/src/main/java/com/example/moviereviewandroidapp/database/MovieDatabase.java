@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 
 import com.example.moviereviewandroidapp.model.Movie;
 
+import java.util.Map;
+
 public class MovieDatabase extends SQLiteOpenHelper {
 
     static final private String DB_NAME = "TestMovieDB1";
@@ -62,5 +64,14 @@ public class MovieDatabase extends SQLiteOpenHelper {
         values.put(Movie.COLUMN_FAVOURITE, false);
         long insert = database.insert(DB_TABLE, null, values);
         Log.d(LOG_TAG, "Data Saved Successfully");
+    }
+
+    public void makeMovieFavourite(Map<Integer, Boolean> favouriteMoviesMap){
+        SQLiteDatabase db = this.getWritableDatabase();
+        for (Map.Entry<Integer, Boolean> entry : favouriteMoviesMap.entrySet()) {
+            ContentValues values = new ContentValues();
+            values.put(Movie.COLUMN_FAVOURITE, entry.getValue());
+            db.update(Movie.DB_TABLE, values, Movie.COLUMN_ID + " = " + entry.getKey(), null);
+        }
     }
 }

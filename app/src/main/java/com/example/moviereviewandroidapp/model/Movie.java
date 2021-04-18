@@ -11,6 +11,7 @@ public class Movie implements Serializable {
     public static final String COLUMN_RATING = "rating";
     public static final String COLUMN_REVIEW = "review";
     public static final String COLUMN_FAVOURITE = "favourite";
+    public static final String DB_TABLE = "Movie";
 
     private int id;
     private String title;

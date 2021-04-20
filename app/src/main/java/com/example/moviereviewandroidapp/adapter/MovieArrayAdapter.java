@@ -54,6 +54,12 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         TextView yearTextView = movieView.findViewById(R.id.movie_year_1);
         yearTextView.setText(String.valueOf(movie.getYear()));
 
+        TextView directorTextView = movieView.findViewById(R.id.movie_director_2);
+        directorTextView.setText(String.valueOf(movie.getDirector()));
+
+        TextView actoreTextView = movieView.findViewById(R.id.movie_actors_2);
+        actoreTextView.setText(String.valueOf(movie.getActor()));
+
         ImageView movieViewViewById = movieView.findViewById(R.id.imageView_card_movie);
         if (position % 3 == 0) {
             movieViewViewById.setImageResource(R.drawable.flower_1);

@@ -40,8 +40,8 @@ public class FavouritesActivity extends AppCompatActivity  implements View.OnCli
         setContentView(R.layout.activity_favourites);
 
         movieDatabase = new MovieDatabase(this);
-        System.out.println(movieDatabase.getMovies().getCount());
-        getAllMovies(movieDatabase.getMovies());
+        System.out.println(movieDatabase.getFavouriteMovies().getCount());
+        getAllMovies(movieDatabase.getFavouriteMovies());
 
         listview = findViewById(R.id.listview_movies);
 

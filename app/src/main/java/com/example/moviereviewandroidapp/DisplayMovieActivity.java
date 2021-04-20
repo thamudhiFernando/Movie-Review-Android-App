@@ -43,7 +43,6 @@ public class DisplayMovieActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_display_movie);
 
         movieDatabase = new MovieDatabase(this);
-        System.out.println(movieDatabase.getMovies().getCount());
         getAllMovies(movieDatabase.getMovies());
 
         listview = findViewById(R.id.listview_movies);

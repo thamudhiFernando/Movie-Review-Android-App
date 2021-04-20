@@ -3,16 +3,14 @@ package com.example.moviereviewandroidapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.moviereviewandroidapp.database.MovieDatabase;
@@ -21,9 +19,8 @@ import com.example.moviereviewandroidapp.model.Movie;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.provider.BaseColumns._ID;
+public class EditMovieDetailActivity extends AppCompatActivity {
 
-public class RegisterMovieActivity extends AppCompatActivity {
     //    Database
     private MovieDatabase movieDatabase;
     static final private String DB_TABLE = "Movie";
@@ -40,10 +37,12 @@ public class RegisterMovieActivity extends AppCompatActivity {
     private EditText rating;
     private EditText review;
 
+    private int moviesId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_movie);
+        setContentView(R.layout.activity_edit_movie_detail);
 
         title = findViewById(R.id.editText_input_1);
         year = findViewById(R.id.editText_input_2);
@@ -51,11 +50,14 @@ public class RegisterMovieActivity extends AppCompatActivity {
         actor = findViewById(R.id.editText_input_4);
         rating = findViewById(R.id.editText_input_5);
         review = findViewById(R.id.editText_input_6);
-        movieDatabase = new MovieDatabase(this);
 
+        movieDatabase = new MovieDatabase(this);
+        int movieId = getIntent().getExtras().getInt("movie");
+        this.moviesId = movieId;
+        getMovie(movieDatabase.getMovie(movieId));
     }
 
-    public void clickedSaveMovieButton(View view) {
+    public void clickedUpdateMovieButton(View view) {
         try {
             Movie movie = new Movie();
             movie.setTitle(title.getText().toString());
@@ -64,18 +66,18 @@ public class RegisterMovieActivity extends AppCompatActivity {
             movie.setActor(actor.getText().toString());
             movie.setRating(Integer.parseInt(rating.getText().toString()));
             movie.setReview(review.getText().toString());
-            movieDatabase.insertMovie(movie);
+            movieDatabase.editMovies(movie);
 
             AlertDialog alertDialog = new AlertDialog.Builder(this)
                     //set icon
 //                    .setIcon(android.R.drawable.ic_dialog_alert)
                     //set title
-                    .setTitle(Html.fromHtml("<font color='#000200'>Movie Added Successfully</font>"))
+                    .setTitle(Html.fromHtml("<font color='#000200'>Movie Updated Successfully</font>"))
                     //set positive button
                     .setPositiveButton(Html.fromHtml("<font color='#FF0000'>OK</font>"), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            Log.d(LOG_TAG, "Data Saved Successfully");
+                            Log.d(LOG_TAG, "Data Updated Successfully");
                         }
                     })
                     //set negative button
@@ -87,21 +89,14 @@ public class RegisterMovieActivity extends AppCompatActivity {
         }
     }
 
-    private void getAllMovies(Cursor cursor) {
-        movie = new Movie();
-        while (cursor.moveToNext()) {
-            Movie movie = new Movie();
-            movie.setId(cursor.getInt(0));
-            movie.setTitle(cursor.getString(1));
-            movie.setYear(cursor.getInt(2));
-            movie.setDirector(cursor.getString(3));
-            movie.setActor(cursor.getString(4));
-            movie.setRating(cursor.getInt(5));
-            movie.setReview(cursor.getString(6));
-            movie.setFavourite(cursor.getString(7).equals("1"));
-            movie.toString();
-            modules.add(movie);
+    private void getMovie(Cursor cursor) {
+        if (cursor.moveToNext()){
+            this.title.setText(cursor.getString(1));
+            this.year.setText(String.valueOf(cursor.getInt(2)));
+            this.director.setText(cursor.getString(3));
+            this.actor.setText(cursor.getString(4));
+            this.rating.setText(String.valueOf(cursor.getInt(5)));
+            this.review.setText(cursor.getString(6));
         }
-        cursor.close();
     }
 }

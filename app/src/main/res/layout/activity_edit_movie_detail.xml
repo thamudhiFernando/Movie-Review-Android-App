@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditMovieDetailActivity">
+
+    <TextView
+        android:id="@+id/textView_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/text_edit"
+        android:textColor="@color/pink_purple"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_logo2" />
+
+    <ImageView
+        android:id="@+id/imageView_logo2"
+        android:layout_width="310dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/desc_imageView_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/head" />
+
+
+    <TextView
+        android:id="@+id/textview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:padding="8dp"
+        android:text="@string/desc_txt_title"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editText_input_1"
+        app:layout_constraintHorizontal_bias="0.987"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_edit" />
+
+    <TextView
+        android:id="@+id/textview_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:text="@string/desc_txt_year"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editText_input_2"
+        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_title" />
+
+    <TextView
+        android:id="@+id/textview_director"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:text="@string/desc_txt_director"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editText_input_3"
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_year" />
+
+    <TextView
+        android:id="@+id/textview_actor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:text="@string/desc_txt_actor"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editText_input_4"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_director" />
+
+    <TextView
+        android:id="@+id/textview_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:text="@string/desc_txt_rating"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editText_input_5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_actor" />
+
+    <TextView
+        android:id="@+id/textview_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:text="@string/desc_txt_review"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/editText_input_6"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_rate" />
+
+    <EditText
+        android:id="@+id/editText_input_2"
+        android:layout_width="92dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
+        android:ems="10"
+        android:hint="@string/hint_1"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_input_1" />
+
+    <EditText
+        android:id="@+id/editText_input_3"
+        android:layout_width="117dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
+        android:ems="10"
+        android:hint="@string/hint_1"
+        android:importantForAutofill="no"
+        android:inputType="textLongMessage"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_input_2" />
+
+    <EditText
+        android:id="@+id/editText_input_4"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/hint_1"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_input_3" />
+
+    <EditText
+        android:id="@+id/editText_input_5"
+        android:layout_width="92dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
+        android:ems="10"
+        android:hint="@string/hint_1"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_input_4" />
+
+    <EditText
+        android:id="@+id/editText_input_6"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/hint_1"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_input_5" />
+
+    <EditText
+        android:id="@+id/editText_input_1"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:ems="10"
+        android:hint="@string/hint_1"
+        android:importantForAutofill="no"
+        android:inputType="textLongMessage"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_edit" />
+
+    <Button
+        android:id="@+id/button_update_movie"
+        android:layout_width="322dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="40dp"
+        android:onClick="clickedUpdateMovieButton"
+        android:text="@string/btn_update"
+        app:backgroundTint="@color/dark_pink"
+        app:cornerRadius="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.561"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_input_6" />
+</androidx.constraintlayout.widget.ConstraintLayout>
